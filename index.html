@@ -40,11 +40,22 @@
     footer{padding:40px 0;color:#b6bac4}
     .foot{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center}
     .links{display:flex;gap:12px;flex-wrap:wrap}
+    /* Animaciones elegantes y accesibles */
+    @media (prefers-reduced-motion: no-preference){
+      .reveal{opacity:0;transform:translateY(12px);transition:opacity .5s ease, transform .5s ease}
+      .reveal.is-visible{opacity:1;transform:none}
+      .btn{transition:transform .2s ease, background .2s ease}
+    }
+    /* Responsive refinado */
     @media (max-width:980px){.hero-grid{grid-template-columns:1fr}h1{font-size:34px}}
+    @media (max-width:640px){.nav{gap:10px;flex-wrap:wrap}}
+    /* Toast minimal para formularios */
+    .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#0b1222;border:1px solid rgba(255,255,255,.12);padding:12px 16px;border-radius:12px;color:#eaeef5;box-shadow:var(--shadow);display:none}
+    .toast.show{display:block}
   </style>
 </head>
 <body>
-  <header>
+  <header class="reveal">
     <div class="container nav">
       <a class="logo" href="#inicio"><span class="logo-mark"></span>Siempre en Verde</a>
       <nav class="links">
@@ -59,7 +70,7 @@
 
   <main id="inicio" class="hero">
     <div class="container hero-grid">
-      <div>
+      <div class="reveal">
         <h1>Transforma tus coches en <span style="color:var(--gold)">reservas</span>, no en likes</h1>
         <p class="lead">Campañas de Meta Ads y sistemas automatizados que llenan tu calendario de clientes directos. Sin portales, sin complicaciones.</p>
         <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
@@ -67,10 +78,13 @@
           <a class="btn btn--ghost" href="#sistema">Ver cómo funciona</a>
         </div>
       </div>
+      <div class="reveal">
+        <img alt="Vista previa de landing profesional" loading="lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1000' height='620'%3E%3Crect width='100%25' height='100%25' fill='%230b1222'/%3E%3Crect x='24' y='24' width='952' height='160' rx='16' fill='%23111827' stroke='%231e293b'/%3E%3Crect x='24' y='204' width='620' height='392' rx='16' fill='%23111827' stroke='%231e293b'/%3E%3Crect x='664' y='204' width='312' height='392' rx='16' fill='%23111827' stroke='%231e293b'/%3E%3C/svg%3E"/>
+      </div>
     </div>
   </main>
 
-  <section id="sistema">
+  <section id="sistema" class="reveal">
     <div class="container">
       <h2>La solución: un sistema que vende por ti</h2>
       <p class="sub">Conectamos tres piezas para transformar clics en reservas reales.</p>
@@ -78,7 +92,7 @@
     </div>
   </section>
 
-  <section id="gancho">
+  <section id="gancho" class="reveal">
     <div class="container">
       <h2>Servicio gancho: Meta Ads de alto rendimiento</h2>
       <p class="sub">Resultados visibles por menos de 300€ de inversión publicitaria.</p>
@@ -86,7 +100,7 @@
     </div>
   </section>
 
-  <section id="bonos">
+  <section id="bonos" class="reveal">
     <div class="container">
       <h2>🎁 Bonos exclusivos — Valor total +497€</h2>
       <p class="sub">Incluidos gratis con tu lanzamiento del sistema Siempre en Verde</p>
@@ -100,7 +114,7 @@
     </div>
   </section>
 
-  <section id="planes">
+  <section id="planes" class="reveal">
     <div class="container">
       <h2>Planes escalables</h2>
       <p class="sub">Validamos con el gancho. Escalamos con estrategia.</p>
@@ -108,21 +122,23 @@
     </div>
   </section>
 
-  <section id="contacto">
+  <section id="contacto" class="reveal">
     <div class="container">
       <h2>¿Listo para llenar tu calendario de reservas?</h2>
       <p class="sub">Cuéntanos tu situación y preparamos una propuesta clara para tu negocio.</p>
-      <form action="https://formspree.io/f/xxxxxxxx" method="POST">
+      <form action="https://formspree.io/f/TU_ID_DE_FORMSPREE" method="POST" id="lead-form">
         <label for="name">Nombre</label><input id="name" name="name" required placeholder="Tu nombre" />
         <label for="email">Email</label><input id="email" type="email" name="email" required placeholder="tucorreo@email.com" />
         <label for="whatsapp">WhatsApp</label><input id="whatsapp" name="whatsapp" placeholder="+34 600 000 000" />
         <label for="message">Mensaje</label><textarea id="message" name="message" rows="4" placeholder="Cuántos coches gestionas y qué objetivo tienes"></textarea>
-        <button class="btn" type="submit">Solicitar propuesta</button>
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+        <button class="btn" type="submit" id="submit-btn">Solicitar propuesta</button>
+        <div aria-live="polite" id="form-status" class="sub" style="margin-top:8px"></div>
       </form>
     </div>
   </section>
 
-  <footer>
+  <footer class="reveal">
     <div class="container foot">
       <small>© <span id="y"></span> Siempre en Verde Automation</small>
       <div class="links">
@@ -133,6 +149,60 @@
       </div>
     </div>
   </footer>
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+
+  <!-- Scripts: animaciones, formulario y métricas (placeholders) -->
+  <script>
+    // Año automático
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Revelar bloques al hacer scroll (accesible)
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!prefersReduced){
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('is-visible'); });
+      },{threshold:0.15});
+      document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+    } else {
+      document.querySelectorAll('.reveal').forEach(el=>el.classList.add('is-visible'));
+    }
+
+    // Manejo de formulario con Formspree (reemplaza TU_ID_DE_FORMSPREE por el tuyo)
+    const form = document.getElementById('lead-form');
+    const statusEl = document.getElementById('form-status');
+    const btn = document.getElementById('submit-btn');
+
+    async function showToast(msg){
+      let t = document.querySelector('.toast');
+      if(!t){ t = document.createElement('div'); t.className='toast'; document.body.appendChild(t); }
+      t.textContent = msg; t.classList.add('show');
+      setTimeout(()=>t.classList.remove('show'), 3000);
+    }
+
+    if(form){
+      form.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        statusEl.textContent = '';
+        btn.disabled = true; btn.textContent = 'Enviando...';
+        try{
+          const data = new FormData(form);
+          const res = await fetch(form.action, { method:'POST', body: data, headers: { 'Accept':'application/json' }});
+          if(res.ok){
+            showToast('✅ Solicitud enviada. Te respondemos en breve.');
+            form.reset();
+            statusEl.textContent = '¡Gracias! Hemos recibido tu solicitud.';
+            if (typeof fbq === 'function') fbq('track','Lead');
+            if (typeof gtag === 'function') gtag('event','generate_lead');
+          } else {
+            statusEl.textContent = 'Hubo un problema enviando el formulario. Prueba de nuevo o escríbenos por Instagram.';
+          }
+        }catch(err){
+          statusEl.textContent = 'Error de red. Comprueba tu conexión.';
+        } finally {
+          btn.disabled = false; btn.textContent = 'Solicitar propuesta';
+        }
+      });
+    }
+  </script>
+  <!-- Pega aquí, si quieres, Meta Pixel y GA4 -->
 </body>
 </html>
