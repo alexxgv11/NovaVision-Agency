@@ -1,19 +1,197 @@
-<form action="https://formspree.io/f/mrbolane" method="POST" id="lead-form">
-  <label for="name">Nombre</label>
-  <input id="name" name="name" required placeholder="Tu nombre" />
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NovaVision Agency — Sistemas que generan reservas reales</title>
+  <meta name="description" content="Campañas y automatización para alquiler de coches de lujo. Anuncios, landing y WhatsApp/CRM orientados a reservas directas." />
+  <meta property="og:title" content="NovaVision Agency — Sistemas que generan reservas reales" />
+  <meta property="og:description" content="Diseñamos campañas y flujos simples que convierten atención en clientes. Sin humo." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/og-image.jpg" />
+  <meta name="theme-color" content="#0b1222" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%230b1222' stroke='%23f5d06b' stroke-width='3'/%3E%3Cpath d='M32 8c1.5 5-2 10-7 11 5 1 8.5 6 7 11 1.5-5 6-8 11-7-5-1-8.5-6-7-11-1.5 5-6 8-11 7 5-1 8.5-6 7-11z' fill='%23f5d06b'/%3E%3C/svg%3E" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--gold:#f5d06b;--gold-700:#e8c45a;--bg:#0b1222;--bg-2:#0f172a;--fg:#e6e9ef;--card:#111827;--shadow:0 10px 30px rgba(0,0,0,.25)}
+    *{box-sizing:border-box}
+    html,body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;background:linear-gradient(180deg,var(--bg-2),var(--bg));color:var(--fg)}
+    a{color:var(--gold);text-decoration:none;font-weight:600;transition:opacity .2s ease}
+    a:hover{opacity:.85}
+    img{max-width:100%;display:block}
+    .container{max-width:1120px;margin:0 auto;padding:0 20px}
+    .btn{display:inline-block;padding:14px 20px;border-radius:14px;font-weight:700;background:var(--gold);color:#0b1222;transition:.2s;box-shadow:var(--shadow)}
+    .btn:hover{transform:translateY(-2px);background:var(--gold-700)}
+    .btn--ghost{background:transparent;border:1px solid var(--gold);color:var(--gold)}
+    header{position:sticky;top:0;z-index:30;background:rgba(15,23,42,.75);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--gold)}
+    .logo-mark{width:28px;height:28px;border-radius:8px;background:conic-gradient(from 180deg,var(--gold),#fff0);display:grid;place-items:center;box-shadow:var(--shadow)}
+    .nav a{color:var(--gold)}
+    .hero{padding:84px 0 48px}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center}
+    h1{font-size:42px;line-height:1.1;margin:16px 0 14px}
+    p.lead{font-size:18px;color:#c7c9cf}
+    section{padding:64px 0;border-top:1px solid rgba(255,255,255,.06)}
+    h2{font-size:30px;margin:0 0 8px;color:var(--gold)}
+    .sub{color:#c8cad1;margin:0 0 24px}
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
+    footer{padding:40px 0;color:#b6bac4}
+    .foot{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center}
+    .links{display:flex;gap:12px;flex-wrap:wrap}
+    @media (prefers-reduced-motion:no-preference){
+      .reveal{opacity:0;transform:translateY(12px);transition:opacity .5s ease, transform .5s ease}
+      .reveal.is-visible{opacity:1;transform:none}
+      .btn{transition:transform .2s ease, background .2s ease}
+    }
+    @media (max-width:980px){.hero-grid{grid-template-columns:1fr}h1{font-size:34px}}
+    @media (max-width:640px){.nav{gap:10px;flex-wrap:wrap}}
+    .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#0b1222;border:1px solid rgba(255,255,255,.12);padding:12px 16px;border-radius:12px;color:#eaeef5;box-shadow:var(--shadow);display:none}
+    .toast.show{display:block}
+    label{display:block;margin-top:10px;margin-bottom:6px;color:#c7c9cf}
+    input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0b1222;color:#e6e9ef}
+  </style>
+</head>
+<body>
+  <header class="reveal">
+    <div class="container nav">
+      <a class="logo" href="#inicio"><span class="logo-mark"></span>NovaVision Agency</a>
+      <nav class="links">
+        <a href="#sistema">Sistema</a>
+        <a href="#gancho">Servicio</a>
+        <a href="#recursos">Recursos</a>
+        <a href="#planes">Planes</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
 
-  <label for="email">Email</label>
-  <input id="email" type="email" name="email" required placeholder="tucorreo@email.com" />
+  <main id="inicio" class="hero">
+    <div class="container hero-grid">
+      <div class="reveal">
+        <h1>Sistemas que convierten atención en <span style="color:var(--gold)">reservas</span></h1>
+        <p class="lead">Campañas y automatización centradas en una sola métrica: clientes que reservan. Sin promesas vacías, con datos y procesos simples.</p>
+        <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn" href="#contacto">Solicitar propuesta</a>
+          <a class="btn btn--ghost" href="#sistema">Cómo trabajamos</a>
+        </div>
+      </div>
+      <div class="reveal">
+        <img alt="Vista previa de sistema" loading="lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1000' height='620'%3E%3Crect width='100%25' height='100%25' fill='%230b1222'/%3E%3Crect x='24' y='24' width='952' height='160' rx='16' fill='%23111827' stroke='%231e293b'/%3E%3Crect x='24' y='204' width='620' height='392' rx='16' fill='%23111827' stroke='%231e293b'/%3E%3Crect x='664' y='204' width='312' height='392' rx='16' fill='%23111827' stroke='%231e293b'/%3E%3C/svg%3E"/>
+      </div>
+    </div>
+  </main>
 
-  <label for="whatsapp">WhatsApp</label>
-  <input id="whatsapp" name="whatsapp" placeholder="+34 600 000 000" />
+  <section id="sistema" class="reveal">
+    <div class="container">
+      <h2>Un flujo claro de principio a fin</h2>
+      <p class="sub">Anuncios → Landing → WhatsApp/CRM → Reserva. Sin pasos innecesarios.</p>
+      <div class="card"><p>Diseñamos una ruta corta para que tus clientes soliciten disponibilidad en menos de 30 segundos. Medimos cada punto y ajustamos con criterio.</p></div>
+    </div>
+  </section>
 
-  <label for="message">Mensaje</label>
-  <textarea id="message" name="message" rows="4" placeholder="Número de coches, fechas y objetivo"></textarea>
+  <section id="gancho" class="reveal">
+    <div class="container">
+      <h2>Servicio de lanzamiento</h2>
+      <p class="sub">Campañas de Meta Ads y optimización continua para generar solicitudes de reserva.</p>
+      <div class="card"><p>Lanzamos creatividades aspiracionales, segmentación precisa y una landing enfocada en conversión. Conectamos WhatsApp/CRM para responder rápido y cerrar sin fricción.</p></div>
+    </div>
+  </section>
 
-  <!-- Honeypot (protección antispam) -->
-  <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+  <section id="recursos" class="reveal">
+    <div class="container">
+      <h2>Guías prácticas incluidas</h2>
+      <p class="sub">Material de apoyo para entender el sistema y tomar decisiones con calma.</p>
+      <p>Incluimos cinco guías en PDF que explican el embudo, el uso de redes, métricas clave y ejemplos de mensajes en WhatsApp. Son materiales de apoyo para que tengas claridad en todo momento.</p>
+      <article class="card"><h3 style="color:var(--gold)">📘 El sistema de reservas</h3><p>Cómo conectar anuncios, landing y WhatsApp para reducir pasos y aumentar cierres.</p></article>
+      <article class="card"><h3 style="color:var(--gold)">📘 De Instagram a solicitudes</h3><p>Ideas de contenido aspiracional que llevan a acciones medibles.</p></article>
+      <article class="card"><h3 style="color:var(--gold)">📘 Métricas sencillas</h3><p>CPL, reservas y ROI: qué mirar y cómo interpretarlo sin complicarte.</p></article>
+      <article class="card"><h3 style="color:var(--gold)">📘 WhatsApp que avanza</h3><p>Mensajes cortos para cualificar y reservar sin perder el tono cercano.</p></article>
+      <article class="card"><h3 style="color:var(--gold)">📘 Estética de lujo</h3><p>Claves visuales para transmitir estatus sin depender del precio.</p></article>
+    </div>
+  </section>
 
-  <button class="btn" type="submit" id="submit-btn">Solicitar propuesta</button>
-  <div aria-live="polite" id="form-status" class="sub" style="margin-top:8px"></div>
-</form>
+  <section id="planes" class="reveal">
+    <div class="container">
+      <h2>Planes</h2>
+      <p class="sub">Empezamos sencillo. Escalamos cuando los datos lo pidan.</p>
+      <div class="card"><p>Desde un lanzamiento básico para validar, hasta un sistema completo con automatización y contenido. Elegimos contigo lo que tiene sentido hoy.</p></div>
+    </div>
+  </section>
+
+  <section id="contacto" class="reveal">
+    <div class="container">
+      <h2>Hablemos</h2>
+      <p class="sub">Cuéntanos tu situación actual y preparamos una propuesta clara.</p>
+      <form action="https://formspree.io/f/mrbolane" method="POST" id="lead-form">
+        <label for="name">Nombre</label><input id="name" name="name" required placeholder="Tu nombre" />
+        <label for="email">Email</label><input id="email" type="email" name="email" required placeholder="tucorreo@email.com" />
+        <label for="whatsapp">WhatsApp</label><input id="whatsapp" name="whatsapp" placeholder="+34 600 000 000" />
+        <label for="message">Mensaje</label><textarea id="message" name="message" rows="4" placeholder="Número de coches, fechas y objetivo"></textarea>
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+        <button class="btn" type="submit" id="submit-btn">Solicitar propuesta</button>
+        <div aria-live="polite" id="form-status" class="sub" style="margin-top:8px"></div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="reveal">
+    <div class="container foot">
+      <small>© <span id="y"></span> NovaVision Agency</small>
+      <div class="links">
+        <a href="#">Política de privacidad</a>
+        <a href="#">Aviso legal</a>
+        <a href="#">Cookies</a>
+        <a href="https://instagram.com/gallegov_" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!prefersReduced){
+      const io = new IntersectionObserver((entries)=>{entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('is-visible'); });},{threshold:0.15});
+      document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+    } else { document.querySelectorAll('.reveal').forEach(el=>el.classList.add('is-visible')); }
+
+    const form = document.getElementById('lead-form');
+    const statusEl = document.getElementById('form-status');
+    const btn = document.getElementById('submit-btn');
+
+    async function showToast(msg){
+      let t = document.querySelector('.toast');
+      if(!t){ t = document.createElement('div'); t.className='toast'; document.body.appendChild(t); }
+      t.textContent = msg; t.classList.add('show');
+      setTimeout(()=>t.classList.remove('show'), 3000);
+    }
+
+    if(form){
+      form.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        statusEl.textContent = '';
+        btn.disabled = true; btn.textContent = 'Enviando...';
+        try{
+          const data = new FormData(form);
+          const res = await fetch(form.action, { method:'POST', body: data, headers: { 'Accept':'application/json' }});
+          if(res.ok){
+            showToast('Solicitud enviada. Te respondemos en breve.');
+            form.reset();
+            statusEl.textContent = 'Gracias. Hemos recibido tu solicitud.';
+            if (typeof fbq === 'function') fbq('track','Lead');
+            if (typeof gtag === 'function') gtag('event','generate_lead');
+          } else {
+            statusEl.textContent = 'No se pudo enviar. Prueba de nuevo o escríbenos por Instagram.';
+          }
+        }catch(err){
+          statusEl.textContent = 'Error de red. Comprueba tu conexión.';
+        } finally {
+          btn.disabled = false; btn.textContent = 'Solicitar propuesta';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
