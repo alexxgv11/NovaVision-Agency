@@ -15,49 +15,187 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{--gold:#f5d06b;--gold-700:#e8c45a;--bg:#0b1222;--bg-2:#0f172a;--fg:#e6e9ef;--card:#111827;--shadow:0 10px 30px rgba(0,0,0,.25)}
+    :root{
+      --gold:#f5d06b;
+      --gold-700:#e8c45a;
+      --bg:#0b1222;
+      --bg-2:#0f172a;
+      --fg:#e6e9ef;
+      --card:#111827;
+      --shadow:0 10px 30px rgba(0,0,0,.25)
+    }
     *{box-sizing:border-box}
-    html,body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;background:linear-gradient(180deg,var(--bg-2),var(--bg));color:var(--fg)}
-    a{color:var(--gold);text-decoration:none;font-weight:600;transition:opacity .2s ease}
+    html,body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
+      background:linear-gradient(180deg,var(--bg-2),var(--bg));
+      color:var(--fg)
+    }
+    a{
+      color:var(--gold);
+      text-decoration:none;
+      font-weight:600;
+      transition:opacity .2s ease
+    }
     a:hover{opacity:.85}
     img{max-width:100%;display:block}
     .container{max-width:1120px;margin:0 auto;padding:0 20px}
-    .btn{display:inline-block;padding:14px 20px;border-radius:14px;font-weight:700;background:var(--gold);color:#0b1222;transition:.2s;box-shadow:var(--shadow)}
-    .btn:hover{transform:translateY(-2px);background:var(--gold-700)}
-    .btn--ghost{background:transparent;border:1px solid var(--gold);color:var(--gold)}
-    header{position:sticky;top:0;z-index:30;background:rgba(15,23,42,.75);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.06)}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    .logo{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--gold)}
-    .logo-mark{width:28px;height:28px;border-radius:8px;background:conic-gradient(from 180deg,var(--gold),#fff0);display:grid;place-items:center;box-shadow:var(--shadow)}
+    .btn{
+      display:inline-block;
+      padding:14px 20px;
+      border-radius:14px;
+      font-weight:700;
+      background:var(--gold);
+      color:#0b1222;
+      transition:.2s;
+      box-shadow:var(--shadow)
+    }
+    .btn:hover{
+      transform:translateY(-2px);
+      background:var(--gold-700)
+    }
+    .btn--ghost{
+      background:transparent;
+      border:1px solid var(--gold);
+      color:var(--gold)
+    }
+    header{
+      position:sticky;
+      top:0;
+      z-index:30;
+      background:rgba(15,23,42,.75);
+      backdrop-filter:blur(8px);
+      border-bottom:1px solid rgba(255,255,255,.06)
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 0
+    }
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
+      color:var(--gold)
+    }
+    .logo-img{
+      height:32px;
+      width:auto;
+      display:block;
+      filter:drop-shadow(0 0 4px rgba(245,208,107,0.35));
+    }
     .nav a{color:var(--gold)}
     .hero{padding:84px 0 48px}
-    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center}
-    h1{font-size:42px;line-height:1.1;margin:16px 0 14px}
-    p.lead{font-size:18px;color:#c7c9cf}
-    section{padding:64px 0;border-top:1px solid rgba(255,255,255,.06)}
-    h2{font-size:30px;margin:0 0 8px;color:var(--gold)}
-    .sub{color:#c8cad1;margin:0 0 24px}
-    .card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
-    footer{padding:40px 0;color:#b6bac4}
-    .foot{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center}
-    .links{display:flex;gap:12px;flex-wrap:wrap}
-    @media (prefers-reduced-motion:no-preference){
-      .reveal{opacity:0;transform:translateY(12px);transition:opacity .5s ease, transform .5s ease}
-      .reveal.is-visible{opacity:1;transform:none}
-      .btn{transition:transform .2s ease, background .2s ease}
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:32px;
+      align-items:center
     }
-    @media (max-width:980px){.hero-grid{grid-template-columns:1fr}h1{font-size:34px}}
-    @media (max-width:640px){.nav{gap:10px;flex-wrap:wrap}}
-    .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#0b1222;border:1px solid rgba(255,255,255,.12);padding:12px 16px;border-radius:12px;color:#eaeef5;box-shadow:var(--shadow);display:none}
+    h1{
+      font-size:42px;
+      line-height:1.1;
+      margin:16px 0 14px
+    }
+    p.lead{font-size:18px;color:#c7c9cf}
+    section{
+      padding:64px 0;
+      border-top:1px solid rgba(255,255,255,.06)
+    }
+    h2{
+      font-size:30px;
+      margin:0 0 8px;
+      color:var(--gold)
+    }
+    .sub{
+      color:#c8cad1;
+      margin:0 0 24px
+    }
+    .card{
+      background:var(--card);
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:16px;
+      padding:18px;
+      box-shadow:var(--shadow)
+    }
+    footer{
+      padding:40px 0;
+      color:#b6bac4
+    }
+    .foot{
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:16px;
+      align-items:center
+    }
+    .links{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap
+    }
+    @media (prefers-reduced-motion:no-preference){
+      .reveal{
+        opacity:0;
+        transform:translateY(12px);
+        transition:opacity .5s ease, transform .5s ease
+      }
+      .reveal.is-visible{
+        opacity:1;
+        transform:none
+      }
+      .btn{
+        transition:transform .2s ease, background .2s ease
+      }
+    }
+    @media (max-width:980px){
+      .hero-grid{grid-template-columns:1fr}
+      h1{font-size:34px}
+    }
+    @media (max-width:640px){
+      .nav{
+        gap:10px;
+        flex-wrap:wrap
+      }
+    }
+    .toast{
+      position:fixed;
+      left:50%;
+      bottom:24px;
+      transform:translateX(-50%);
+      background:#0b1222;
+      border:1px solid rgba(255,255,255,.12);
+      padding:12px 16px;
+      border-radius:12px;
+      color:#eaeef5;
+      box-shadow:var(--shadow);
+      display:none
+    }
     .toast.show{display:block}
-    label{display:block;margin-top:10px;margin-bottom:6px;color:#c7c9cf}
-    input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0b1222;color:#e6e9ef}
+    label{
+      display:block;
+      margin-top:10px;
+      margin-bottom:6px;
+      color:#c7c9cf
+    }
+    input,textarea{
+      width:100%;
+      padding:12px 14px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.12);
+      background:#0b1222;
+      color:#e6e9ef
+    }
   </style>
 </head>
 <body>
   <header class="reveal">
     <div class="container nav">
-      <a class="logo" href="#inicio"><span class="logo-mark"></span>NovaVision Agency</a>
+      <a class="logo" href="#inicio">
+        <img src="logo-novavision.png" alt="NovaVision Agency Logo" class="logo-img">
+        <span>NovaVision Agency</span>
+      </a>
       <nav class="links">
         <a href="#sistema">Sistema</a>
         <a href="#gancho">Servicio</a>
@@ -88,7 +226,9 @@
     <div class="container">
       <h2>Un flujo claro de principio a fin</h2>
       <p class="sub">Anuncios → Landing → WhatsApp/CRM → Reserva. Sin pasos innecesarios.</p>
-      <div class="card"><p>Diseñamos una ruta corta para que tus clientes soliciten disponibilidad en menos de 30 segundos. Medimos cada punto y ajustamos con criterio.</p></div>
+      <div class="card">
+        <p>Diseñamos una ruta corta para que tus clientes soliciten disponibilidad en menos de 30 segundos. Medimos cada punto y ajustamos con criterio.</p>
+      </div>
     </div>
   </section>
 
@@ -96,7 +236,9 @@
     <div class="container">
       <h2>Servicio de lanzamiento</h2>
       <p class="sub">Campañas de Meta Ads y optimización continua para generar solicitudes de reserva.</p>
-      <div class="card"><p>Lanzamos creatividades aspiracionales, segmentación precisa y una landing enfocada en conversión. Conectamos WhatsApp/CRM para responder rápido y cerrar sin fricción.</p></div>
+      <div class="card">
+        <p>Lanzamos creatividades aspiracionales, segmentación precisa y una landing enfocada en conversión. Conectamos WhatsApp/CRM para responder rápido y cerrar sin fricción.</p>
+      </div>
     </div>
   </section>
 
@@ -117,7 +259,9 @@
     <div class="container">
       <h2>Planes</h2>
       <p class="sub">Empezamos sencillo. Escalamos cuando los datos lo pidan.</p>
-      <div class="card"><p>Desde un lanzamiento básico para validar, hasta un sistema completo con automatización y contenido. Elegimos contigo lo que tiene sentido hoy.</p></div>
+      <div class="card">
+        <p>Desde un lanzamiento básico para validar, hasta un sistema completo con automatización y contenido. Elegimos contigo lo que tiene sentido hoy.</p>
+      </div>
     </div>
   </section>
 
@@ -126,10 +270,14 @@
       <h2>Hablemos</h2>
       <p class="sub">Cuéntanos tu situación actual y preparamos una propuesta clara.</p>
       <form action="https://formspree.io/f/mrbolane" method="POST" id="lead-form">
-        <label for="name">Nombre</label><input id="name" name="name" required placeholder="Tu nombre" />
-        <label for="email">Email</label><input id="email" type="email" name="email" required placeholder="tucorreo@email.com" />
-        <label for="whatsapp">WhatsApp</label><input id="whatsapp" name="whatsapp" placeholder="+34 600 000 000" />
-        <label for="message">Mensaje</label><textarea id="message" name="message" rows="4" placeholder="Número de coches, fechas y objetivo"></textarea>
+        <label for="name">Nombre</label>
+        <input id="name" name="name" required placeholder="Tu nombre" />
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email" required placeholder="tucorreo@email.com" />
+        <label for="whatsapp">WhatsApp</label>
+        <input id="whatsapp" name="whatsapp" placeholder="+34 600 000 000" />
+        <label for="message">Mensaje</label>
+        <textarea id="message" name="message" rows="4" placeholder="Número de coches, fechas y objetivo"></textarea>
         <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
         <button class="btn" type="submit" id="submit-btn">Solicitar propuesta</button>
         <div aria-live="polite" id="form-status" class="sub" style="margin-top:8px"></div>
@@ -153,9 +301,15 @@
     document.getElementById('y').textContent = new Date().getFullYear();
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if(!prefersReduced){
-      const io = new IntersectionObserver((entries)=>{entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('is-visible'); });},{threshold:0.15});
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting) e.target.classList.add('is-visible');
+        });
+      },{threshold:0.15});
       document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-    } else { document.querySelectorAll('.reveal').forEach(el=>el.classList.add('is-visible')); }
+    } else {
+      document.querySelectorAll('.reveal').forEach(el=>el.classList.add('is-visible'));
+    }
 
     const form = document.getElementById('lead-form');
     const statusEl = document.getElementById('form-status');
@@ -163,8 +317,13 @@
 
     async function showToast(msg){
       let t = document.querySelector('.toast');
-      if(!t){ t = document.createElement('div'); t.className='toast'; document.body.appendChild(t); }
-      t.textContent = msg; t.classList.add('show');
+      if(!t){
+        t = document.createElement('div');
+        t.className='toast';
+        document.body.appendChild(t);
+      }
+      t.textContent = msg;
+      t.classList.add('show');
       setTimeout(()=>t.classList.remove('show'), 3000);
     }
 
@@ -172,10 +331,15 @@
       form.addEventListener('submit', async (e)=>{
         e.preventDefault();
         statusEl.textContent = '';
-        btn.disabled = true; btn.textContent = 'Enviando...';
+        btn.disabled = true;
+        btn.textContent = 'Enviando...';
         try{
           const data = new FormData(form);
-          const res = await fetch(form.action, { method:'POST', body: data, headers: { 'Accept':'application/json' }});
+          const res = await fetch(form.action, {
+            method:'POST',
+            body: data,
+            headers: { 'Accept':'application/json' }
+          });
           if(res.ok){
             showToast('Solicitud enviada. Te respondemos en breve.');
             form.reset();
@@ -188,7 +352,8 @@
         }catch(err){
           statusEl.textContent = 'Error de red. Comprueba tu conexión.';
         } finally {
-          btn.disabled = false; btn.textContent = 'Solicitar propuesta';
+          btn.disabled = false;
+          btn.textContent = 'Solicitar propuesta';
         }
       });
     }
