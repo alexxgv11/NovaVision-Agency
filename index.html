@@ -188,6 +188,17 @@
       background:#0b1222;
       color:#e6e9ef
     }
+    /* pequeño estilo para el título y subtítulo nuevos del hero */
+    .hero-kicker{
+      font-weight:700;
+      font-size:18px;
+      color:var(--gold);
+      margin:0 0 4px;
+    }
+    .hero-sub{
+      margin:0 0 10px;
+      color:#c7c9cf;
+    }
   </style>
 </head>
 <body>
@@ -210,6 +221,17 @@
   <main id="inicio" class="hero">
     <div class="container hero-grid">
       <div class="reveal">
+        <!-- NUEVO BLOQUE: título + subtítulo + CTA Gmail -->
+        <p class="hero-kicker">Elevamos tu empresa al siguiente nivel.</p>
+        <p class="hero-sub">Si necesitas más información, háblame por Gmail.</p>
+        <div style="margin:10px 0 18px; display:flex; gap:12px; flex-wrap:wrap;">
+          <!-- Cambia el correo de abajo por el tuyo real -->
+          <a class="btn" href="mailto:tuemail@gmail.com?subject=Información%20NovaVision%20Agency&body=Hola%2C%20me%20gustaría%20recibir%20más%20información%20sobre%20tus%20servicios.">
+            Escribir por Gmail
+          </a>
+        </div>
+
+        <!-- BLOQUE ORIGINAL DEL HERO -->
         <h1>Sistemas que convierten atención en <span style="color:var(--gold)">reservas</span></h1>
         <p class="lead">Campañas y automatización centradas en una sola métrica: clientes que reservan. Sin promesas vacías, con datos y procesos simples.</p>
         <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
@@ -262,6 +284,54 @@
       <p class="sub">Empezamos sencillo. Escalamos cuando los datos lo pidan.</p>
       <div class="card">
         <p>Desde un lanzamiento básico para validar, hasta un sistema completo con automatización y contenido. Elegimos contigo lo que tiene sentido hoy.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUEVA SECCIÓN: RESEÑAS -->
+  <section id="resenas" class="reveal">
+    <div class="container">
+      <h2>Reseñas</h2>
+      <p class="sub">Algunas opiniones de clientes que ya han empezado a trabajar con sistemas, no con improvisación.</p>
+      <div class="card" style="margin-bottom:16px">
+        <p><strong>“Pasamos de depender de Instagram a tener solicitudes todos los días. Ahora sabemos qué viene y cuándo.”</strong></p>
+        <p style="color:#c7c9cf;margin-top:6px">— Cliente de alquiler de coches de lujo (Madrid)</p>
+      </div>
+      <div class="card" style="margin-bottom:16px">
+        <p><strong>“El sistema de WhatsApp y el filtrado nos ha ahorrado horas de conversaciones con curiosos. Ahora hablamos casi solo con gente que va en serio.”</strong></p>
+        <p style="color:#c7c9cf;margin-top:6px">— Empresa de deportivos por días</p>
+      </div>
+      <div class="card">
+        <p><strong>“Tener datos claros (leads, CPL, cierres) nos ha dado tranquilidad. Sabemos qué funciona y qué no, sin opiniones.”</strong></p>
+        <p style="color:#c7c9cf;margin-top:6px">— Dirección de flota premium</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUEVA SECCIÓN: PREGUNTAS FRECUENTES -->
+  <section id="faq" class="reveal">
+    <div class="container">
+      <h2>Preguntas frecuentes</h2>
+      <p class="sub">Dudas habituales antes de empezar a montar el sistema.</p>
+
+      <div class="card" style="margin-bottom:16px">
+        <h3 style="margin-top:0;color:var(--gold)">¿Con cuánto presupuesto en anuncios tengo que empezar?</h3>
+        <p>Depende de tu ciudad y de tu flota, pero lo normal está entre 10 y 30 €/día. Siempre buscamos un punto en el que el sistema sea rentable, no tirar dinero.</p>
+      </div>
+
+      <div class="card" style="margin-bottom:16px">
+        <h3 style="margin-top:0;color:var(--gold)">¿En cuánto tiempo veré resultados?</h3>
+        <p>En la mayoría de casos los primeros leads empiezan a llegar los primeros días de campaña. El sistema se estabiliza entre las 2 y 4 semanas, cuando ya tenemos datos suficientes para optimizar.</p>
+      </div>
+
+      <div class="card" style="margin-bottom:16px">
+        <h3 style="margin-top:0;color:var(--gold)">¿Tengo que firmar permanencia?</h3>
+        <p>No trabajo con permanencias largas. Montamos el sistema y, si tiene sentido para ambos, seguimos optimizando y escalando. Si no, lo dejamos listo para que puedas seguir utilizándolo.</p>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-top:0;color:var(--gold)">¿Solo trabajas con alquiler de coches de lujo?</h3>
+        <p>Sí. Estoy centrado en negocios de alquiler de deportivos y coches de lujo, porque el sistema está diseñado específicamente para este modelo: tickets altos, reservas por días y leads por WhatsApp.</p>
       </div>
     </div>
   </section>
